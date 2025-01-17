@@ -22,11 +22,64 @@ const { title, description } = Astro.props;
 	</body>
 </html>
 
-<style>
+<style lang="scss">
+	@use '../components/global.scss';
+
+	@keyframes bg {
+		0% {
+			background-position: 0% 50%;
+		}
+		50% {
+			background-position: 100% 50%;
+		}
+		100% {
+			background-position: 0% 50%;
+		}
+	}
+
 	html,
 	body {
 		margin: 0;
 		width: 100%;
 		height: 100%;
+	}
+
+	html {
+		position: relative;
+
+		&::after {
+			inset: 0;
+			position: absolute;
+			content: '';
+			background: linear-gradient(-45deg, var(--blue1), var(--lightblue), var(--blue2), var(--navy));
+			background-size: 400% 400%;
+			animation: bg 15s ease infinite;
+			z-index: 1;
+			background-attachment: fixed;
+		}
+
+		&::before {
+			inset: 0;
+			position: absolute;
+			content: '';
+			background: rgba(255, 255, 255, 0.65);
+			z-index: 2;
+			background-attachment: fixed;
+		}
+	}
+
+	body {
+		position: relative;
+		z-index: 5;
+	}
+
+	@media (prefers-color-scheme: dark) {
+		html {
+			background: var(--black);
+
+			&::before {
+				background: rgba(0, 0, 0, 0.65);
+			}
+		}
 	}
 </style>
