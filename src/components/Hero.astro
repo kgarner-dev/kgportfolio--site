@@ -19,12 +19,46 @@
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: auto;
         gap: 1rem;
+        padding: 25px;
+
+        @media (min-width: 600px) {
+            min-height: 45vh;
+            padding: 45px;
+        }
 
         &-headline, &-text {
             grid-column: auto / span 2;
 
             @media (min-width: 600px) {
                 grid-column: auto / span 1;
+            }
+        }
+
+        &-headline {
+            h1 {
+                margin: 0 0 10px;
+                font-size: 2.85rem;
+            }
+
+            h2 {
+                margin: 0;
+                font-size: 1.65rem;
+            }
+
+            @media (min-width: 600px) {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+            }
+        }
+
+        &-text {
+            @media (min-width: 600px) {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-end;
             }
         }
     }

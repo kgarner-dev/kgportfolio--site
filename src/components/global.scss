@@ -1,7 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 :root {
     --white: #fff;
     --black: #151f28;
     --lightblue: #77a2cf;
     --blue: #3a6ea5;
     --gray: #f6f6f6;
+}
+
+h1 {
+    font-family: "Montserrat", serif;
+    font-weight: 500;
+}
+
+h2, h3, h4, h5, p, a, span {
+    font-family: "Montserrat", serif;
+    font-weight: 300;
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.5;
 }
