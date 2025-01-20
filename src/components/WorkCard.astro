@@ -1,0 +1,111 @@
+---
+interface Props {
+	title: string,
+    type: string,
+	headline: string,
+    url: string,
+    thumbnail: string,
+    date: string,
+    priority: number
+};
+
+const { title, type, headline, url, thumbnail, date, priority } = Astro.props;
+---
+
+<div class=`work-card work-card--${ priority }` style=`background-image: url('${ thumbnail }')`>
+    <a href=`/${ url }`>
+        <div class="work-card--headlines">
+            <h2 class="work-card--title">{ title }</h2>
+            <p class="work-card--headline">{ headline }</p>
+        </div>
+        <div class="work-card--info">
+            <p class="work-card--type">{ type }</p>
+            <p class="work-card--date">{ date }</p>
+        </div>
+    </a>
+</div>
+
+<style lang="scss">
+    @use './global.scss';
+
+    .work-card {
+        grid-column: auto / span 4;
+        border-radius: 8px;
+        overflow: hidden;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        position: relative;
+        
+        &::after {
+            inset: 0;
+            position: absolute;
+            content: '';
+            background: rgba(0,0,0,0.35);
+            transition: all 0.3s ease;
+        }
+
+        &:hover {
+            &::after {
+                background: rgba(0,0,0,0.75);
+            }
+        }
+
+        &--1 {
+            grid-row: span 16;
+        }
+
+        &--2 {
+            grid-row: span 12;
+        }
+
+        &--3 {
+            grid-row: span 8;
+        }
+
+        @media (min-width: 600px) {
+            grid-column: auto / span 2;
+        }
+
+        @media (min-width: 850px) {
+            grid-column: auto / span 1;
+        }
+
+        a {
+            position: absolute;
+            inset: 0;
+            padding: 15px;
+            text-decoration: none;
+            z-index: 5;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        &--headlines {
+            .work-card--title {
+                margin: 0 0 10px;
+                color: var(--white);
+            }
+
+            .work-card--headline {
+                margin: 0;
+                color: var(--white);
+            }
+        }
+
+        &--info {
+            display: flex;
+            justify-content: space-between;
+
+            * {
+                margin: 0;
+                color: var(--white);
+            }
+
+            .work-card--type {
+                text-transform: capitalize;
+            }
+        }
+    }
+</style>

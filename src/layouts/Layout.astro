@@ -46,23 +46,23 @@ const { title, description } = Astro.props;
 
 	html {
 		position: relative;
+		background: var(--black);
 
 		&::after {
 			inset: 0;
-			position: absolute;
+			position: fixed;
 			content: '';
 			background: linear-gradient(-45deg, var(--blue1), var(--lightblue), var(--blue2), var(--navy));
 			background-size: 400% 400%;
-			animation: bg 15s ease infinite;
+			animation: bg 10s ease infinite;
 			z-index: 1;
-			background-attachment: fixed;
 		}
 
 		&::before {
 			inset: 0;
-			position: absolute;
+			position: fixed;
 			content: '';
-			background: rgba(255, 255, 255, 0.65);
+			background: rgba(0, 0, 0, 0.65);
 			z-index: 2;
 			background-attachment: fixed;
 		}
@@ -71,15 +71,5 @@ const { title, description } = Astro.props;
 	body {
 		position: relative;
 		z-index: 5;
-	}
-
-	@media (prefers-color-scheme: dark) {
-		html {
-			background: var(--black);
-
-			&::before {
-				background: rgba(0, 0, 0, 0.65);
-			}
-		}
 	}
 </style>
