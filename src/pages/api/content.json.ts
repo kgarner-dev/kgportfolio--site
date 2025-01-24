@@ -31,7 +31,7 @@ export const GET: APIRoute = () => {
                 headline: "Portfilio Site built with Astro",
                 date: "January 2025",
                 thumbnail: "https://hbirmdoiqm.ufs.sh/f/C3h9qu5XgJvHVbj5uQqW8bhg7kDjcYUI5le2ME3qfydFB04N",
-                tldr: "Intuitive portfolio website used to highlight my experience, background, and content utilizing the best of Astro.",
+                tldr: "Intuitive portfolio website used to highlight my experience, background, and content while utilizing the best of Astro.",
                 priority: 2
             },
             {

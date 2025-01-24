@@ -1,4 +1,5 @@
 ---
+import Masthead from '../../components/Masthead.astro';
 import Layout from '../../layouts/Layout.astro';
 import { GET } from '../api/content.json'
 
@@ -7,12 +8,18 @@ const data = await response.json();
 
 const { project } = Astro.params;
 
-const matchingItem = data.find((item: { url: string | undefined; }) => item.url === project);
+const matchingProject = data.find((item: { url: string | undefined; }) => item.url === project);
 ---
 
 <Layout 
-	title="Kaleb Garner - Web Dev"
-	description="Exeperienced web developer based in North Texas"
+	title=`Kaleb Garner - ${ matchingProject.title }`
+	description=`${ matchingProject.tldr }`
 >
-    <h1>URL: { matchingItem.date }</h1>
+    <Masthead 
+        title={ matchingProject.title }
+        headline={ matchingProject.headline }
+        date={ matchingProject.date }
+        tldr={ matchingProject.tldr }
+        thumbnail={ matchingProject.thumbnail }
+    />
 </Layout>

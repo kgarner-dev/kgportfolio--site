@@ -1,0 +1,115 @@
+---
+const { title, headline, date, thumbnail, tldr } = Astro.props;
+---
+
+<main class="masthead">
+    <div class="masthead-image" style=`background: url('${ thumbnail }') center center/cover no-repeat;'`></div>
+    <div class="masthead-text">
+        <div class="masthead-headline">
+            <p><a href='/'>Home</a> > { title }</p>
+            <h1>{ title }</h1>
+            <h2>{ headline }</h2>
+        </div>
+        <div class="masthead-info">
+            <p class="masthead-date">{ date }</p>
+            <p class="masthead-tldr">{ tldr }</p>
+        </div>
+    </div>
+</main>
+
+<style lang="scss">
+    @use './global.scss';
+
+    .masthead {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+        gap: 1rem;
+        padding: 25px;
+
+        @media (min-width: 600px) {
+            padding: 45px;
+        }
+
+        &-image, &-text {
+            grid-column: auto / span 2;
+        }
+
+        &-text {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: auto;
+            gap: 1rem;
+            padding: 25px 0;
+
+            @media (min-width: 600px) {
+                padding: 45px 0;
+            }
+
+            .masthead {
+                &-headline, &-info {
+                    grid-column: auto / span 2;
+                    display: flex;
+                    flex-direction: column;
+
+                    @media (min-width: 600px) {
+                        grid-column: auto / span 1;
+                    }
+                }
+
+                &-headline {
+                    h1 {
+                        font-size: 2.65rem;
+                        margin: 12px 0;
+                    }
+
+                    p {
+                        font-size: 0.9rem;
+                        margin: 0;
+                    }
+
+                    h2 {
+                        font-size: 1.25rem;
+                        margin: 0;
+                    }
+                }
+
+                &-info {
+                    .masthead-tldr {
+                        font-size: 1.25rem;
+                        margin: 12px 0;
+                    }
+
+                    .masthead-date {
+                        font-size: 0.9rem;
+                        margin: 0;
+                    }
+                }
+            }
+        }
+
+        &-image {
+            min-height: 50vh;
+            border-radius: 12px;
+            overflow: hidden;
+
+            @media (min-width: 600px) {
+                min-height: 80vh;
+            }
+        }
+
+        h1, h2, p {
+            color: var(--white);
+        }
+
+        a {
+            color: var(--white);
+
+            &:hover {
+                color: var(--lightblue)
+            }
+        }
+    }
+</style>
