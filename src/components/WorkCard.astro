@@ -13,7 +13,7 @@ const { title, type, headline, url, thumbnail, date, priority } = Astro.props;
 ---
 
 <div class=`work-card work-card--${ priority }` style=`background-image: url('${ thumbnail }')`>
-    <a href=`/${ url }`>
+    <a href=`/projects/${ url }`>
         <div class="work-card--headlines">
             <h2 class="work-card--title">{ title }</h2>
             <p class="work-card--headline">{ headline }</p>

@@ -1,0 +1,18 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { GET } from '../api/content.json'
+
+const response = await GET(Astro);
+const data = await response.json();
+
+const { project } = Astro.params;
+
+const matchingItem = data.find((item: { url: string | undefined; }) => item.url === project);
+---
+
+<Layout 
+	title="Kaleb Garner - Web Dev"
+	description="Exeperienced web developer based in North Texas"
+>
+    <h1>URL: { matchingItem.date }</h1>
+</Layout>
