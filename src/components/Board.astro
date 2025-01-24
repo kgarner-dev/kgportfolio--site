@@ -1,5 +1,7 @@
 ---
-const response = await fetch('/api/content.json');
+import { GET } from '../pages/api/content.json'
+
+const response = await GET(Astro);
 const data = await response.json();
 
 import type { content } from "../pages/api/content.json";
