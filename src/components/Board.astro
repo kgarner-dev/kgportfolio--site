@@ -1,4 +1,7 @@
 ---
+const response = await fetch('/api/content.json');
+const data = await response.json();
+
 import type { content } from "../pages/api/content.json";
 import WorkCard from "./WorkCard.astro";
 ---
@@ -14,7 +17,7 @@ import WorkCard from "./WorkCard.astro";
         </div> -->
     </div>
     <div class="board-feed">
-        <!--{
+        {
             data.map(( item: content ) => (
                 <WorkCard 
                     title={ item.title }
@@ -26,7 +29,7 @@ import WorkCard from "./WorkCard.astro";
                     priority={ item.priority }
                 />
             ))
-        }-->
+        }
     </div>
 </div>
 
