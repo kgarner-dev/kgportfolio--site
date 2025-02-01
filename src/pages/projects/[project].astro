@@ -1,25 +1,24 @@
 ---
 import Masthead from '../../components/Masthead.astro';
 import Layout from '../../layouts/Layout.astro';
-import { GET } from '../api/content.json'
-
-const response = await GET(Astro);
-const data = await response.json();
+import { db, Work, eq } from 'astro:db';
 
 const { project } = Astro.params;
+const projectSlug = String(project)
 
-const matchingProject = data.find((item: { url: string | undefined; }) => item.url === project);
+const workItems = await db.select().from(Work).where(eq(Work.url, projectSlug));
+const work = workItems[0] ?? null;
 ---
 
 <Layout 
-	title=`Kaleb Garner - ${ matchingProject.title }`
-	description=`${ matchingProject.tldr }`
+	title=`Kaleb Garner - ${ work.title }`
+	description=`${ work.tldr }`
 >
     <Masthead 
-        title={ matchingProject.title }
-        headline={ matchingProject.headline }
-        date={ matchingProject.date }
-        tldr={ matchingProject.tldr }
-        thumbnail={ matchingProject.thumbnail }
+        title={ work.title }
+        headline={ work.headline }
+        date={ work.date }
+        tldr={ work.tldr }
+        thumbnail={ work.thumbnail }
     />
 </Layout>

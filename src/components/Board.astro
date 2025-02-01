@@ -1,11 +1,8 @@
 ---
-import { GET } from '../pages/api/content.json'
-
-const response = await GET(Astro);
-const data = await response.json();
-
-import type { content } from "../pages/api/content.json";
+import { db, Work } from 'astro:db';
 import WorkCard from "./WorkCard.astro";
+
+const work = await db.select().from(Work);
 ---
 
 <div class="board">
@@ -20,15 +17,15 @@ import WorkCard from "./WorkCard.astro";
     </div>
     <div class="board-feed">
         {
-            data.map(( item: content ) => (
+            work.map(({ title, type, headline, url, thumbnail, date, priority }) => (
                 <WorkCard 
-                    title={ item.title }
-                    type={ item.type }
-                    headline={ item.headline }
-                    url={ item.url }
-                    thumbnail={ item.thumbnail }
-                    date={ item.date }
-                    priority={ item.priority }
+                    title={ title }
+                    type={ type }
+                    headline={ headline }
+                    url={ url }
+                    thumbnail={ thumbnail }
+                    date={ date }
+                    priority={ priority }
                 />
             ))
         }
