@@ -1,0 +1,66 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+	title="Kaleb Garner - 404 Error"
+	description="Looks like you ended up in the wrong place!"
+>
+	<div class="container">
+        <h1>Uh Oh!</h1>
+        <p>Looks like you ended up in the wrong place! Unfortunately, the page you were looking for does not exist. Let's get you back on track.</p>
+        <a href='/' class='btn'>Go Back Home</a>
+    </div>
+</Layout>
+
+<style lang="scss">
+    @use '../components/global.scss';
+
+    .container {
+        min-height: 80vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 25px;
+        position: relative;
+
+        &::after {
+            inset: 0;
+            position: absolute;
+            content: '404';
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30vw;
+            z-index: 1;
+            font-family: "Montserrat", serif;
+            font-weight: 500;
+            opacity: 0.085;
+            color: var(--lightblue);
+        }
+
+        * {
+            position: relative;
+            z-index: 5;
+        }
+
+        @media (min-width: 600px) {
+            padding: 45px;
+        }
+
+        h1 {
+            margin: 0 0 10px;
+            font-size: 2.85rem;
+            color: var(--white);
+        }
+
+        p {
+            margin: 0;
+            color: var(--white);
+        }
+    }
+</style>

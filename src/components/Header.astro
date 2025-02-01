@@ -1,0 +1,116 @@
+<header>
+    <h2><a href='/'>KG</a></h2>
+    <span id="nav-toggle">☰</span>
+</header>
+
+<div id="nav">
+    <div class="nav-content">
+        <span id="nav-close">Close X</span>
+        <a href="/" class="nav-item">Home</a>
+        <a href="/projects" class="nav-item">Projects</a>
+    </div>
+    <div class="nav-socials">
+        <a href="https://www.linkedin.com/in/kalebgarner/" target="_blank" class="nav-item">LinkedIn</a>
+        <a href="https://bsky.app/profile/kalebgarner.dev" target="_blank" class="nav-item">Bluesky</a>
+        <a href="https://www.twitch.tv/kgthedev" target="_blank" class="nav-item">Twitch</a>
+        <a href="https://www.youtube.com/@kgthedev" target="_blank" class="nav-item">YouTube</a>
+        <a href="https://github.com/kgarner-dev" target="_blank" class="nav-item">GitHub</a>
+    </div>
+</div>
+
+<script>
+    const toggleButton = document.getElementById('nav-toggle');
+    const closeButton = document.getElementById('nav-close');
+    const nav = document.getElementById('nav');
+
+    toggleButton?.addEventListener('click', () => {
+        nav!.classList.add('open-nav')
+    })
+
+    closeButton?.addEventListener('click', () => {
+        nav!.classList.remove('open-nav')
+    })
+
+</script>
+
+<style lang="scss">
+    @use './global.scss';
+
+    header {
+        padding: 20px 25px;
+        position: sticky;
+        top: 0;
+        background: rgba(21, 31, 40, 0.65);
+        z-index: 500;
+        backdrop-filter: blur(2px);
+        display: flex;
+        justify-content: space-between;
+
+        h2 {
+            margin: 0;
+
+            a {
+                text-decoration: none;
+                color: unset;
+                font-weight: 500;
+                color: var(--white);
+                font-size: 2rem;
+            }
+        }
+
+        #nav-toggle {
+            color: var(--white);
+            font-size: 2rem;
+            cursor: pointer;
+        }
+    }
+
+    #nav {
+        height: 100%;
+        width: 250px;
+        position: fixed;
+        z-index: 600;
+        top: 0;
+        right: -250px;
+        background: var(--black);
+        overflow: hidden;
+        transition: right 0.5s ease;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .nav-content, .nav-socials {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+
+            #nav-close {
+                color: var(--white);
+                width: 100%;
+                font-weight: 500;
+                text-align: right;
+                cursor: pointer;
+                margin-bottom: 25px;
+            }
+
+            .nav-item {
+                color: var(--white);
+                font-size: 1.12rem;
+                text-decoration: none;
+                font-weight: 500;
+                transition: color 0.15s ease;
+
+                &:hover {
+                    color: var(--lightblue);
+                }
+            }
+        }
+    }
+
+    .open-nav {
+       right: 0 !important;
+    }
+
+</style>
