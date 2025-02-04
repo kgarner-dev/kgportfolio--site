@@ -1,13 +1,24 @@
 ---
 import Masthead from '../../components/Masthead.astro';
 import Layout from '../../layouts/Layout.astro';
-import { db, Work, eq } from 'astro:db';
+import { db, MyWork, eq } from 'astro:db';
 
 const { project } = Astro.params;
 const projectSlug = String(project)
 
-const workItems = await db.select().from(Work).where(eq(Work.url, projectSlug));
+const workItems = await db.select().from(MyWork).where(eq(MyWork.url, projectSlug));
 const work = workItems[0] ?? null;
+
+if (!work) {
+    return new Response(null, {
+        status: 302,
+        headers: {
+            Location: '/404',
+        },
+    });
+}
+
+const sections = work.body;
 ---
 
 <Layout 
@@ -22,3 +33,22 @@ const work = workItems[0] ?? null;
         thumbnail={ work.thumbnail }
     />
 </Layout>
+
+<style lang="scss">
+    @use '../../components/global.scss';
+
+    .body-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 25px 25px;
+
+        @media (min-width: 600px) {
+            padding: 0 45px 45px;
+        }
+
+        p {
+            color: var(--white);
+            margin: 0;
+        }
+    }
+</style>

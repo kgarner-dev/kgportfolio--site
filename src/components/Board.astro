@@ -1,8 +1,8 @@
 ---
-import { db, Work } from 'astro:db';
+import { db, MyWork } from 'astro:db';
 import WorkCard from "./WorkCard.astro";
 
-const work = await db.select().from(Work);
+const work = await db.select().from(MyWork);
 ---
 
 <div class="board">

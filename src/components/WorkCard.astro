@@ -1,14 +1,4 @@
 ---
-interface Props {
-	title: string,
-    type: string,
-	headline: string,
-    url: string,
-    thumbnail: string,
-    date: string,
-    priority: number
-};
-
 const { title, type, headline, url, thumbnail, date, priority } = Astro.props;
 ---
 
@@ -41,7 +31,7 @@ const { title, type, headline, url, thumbnail, date, priority } = Astro.props;
             inset: 0;
             position: absolute;
             content: '';
-            background: rgba(0,0,0,0.35);
+            background: rgba(0,0,0,0.45);
             transition: all 0.3s ease;
         }
 

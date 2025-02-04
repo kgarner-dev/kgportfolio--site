@@ -3,6 +3,7 @@
         <h1>Kaleb Garner</h1>
         <h2>Web Developer</h2>
     </div>
+
     <div class="hero-text">
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et velit nec lorem scelerisque dapibus. Maecenas pulvinar odio enim, fermentum ultrices diam commodo non. In hac habitasse platea dictumst. Mauris urna arcu, hendrerit vel tempor quis, interdum in sem. Quisque nec facilisis lacus. Nullam et facilisis purus.</p>
     </div>
@@ -39,6 +40,16 @@
             h1 {
                 margin: 0 0 10px;
                 font-size: 2.85rem;
+                display: flex;
+                gap: 10px;
+
+                &::before {
+                    height: 100%;
+                    aspect-ratio: 1;
+                    content: '';
+                    background: url('doodle.png') center center/cover no-repeat;
+                    border-radius: 50%;
+                }
             }
 
             h2 {
@@ -52,6 +63,7 @@
                 align-items: flex-start;
                 justify-content: flex-start;
             }
+
         }
 
         &-text {
