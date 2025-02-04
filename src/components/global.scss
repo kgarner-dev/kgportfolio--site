@@ -2,12 +2,12 @@
 
 :root {
     --white: #fff;
-    --black: #151f28;
-    --lightblue: #77a2cf;
-    --blue1: #3a6ea5;
+    --black: #111A0F;
     --gray: #f6f6f6;
-    --navy: #284767;
-    --blue2: #618FC0;
+    --color1: #436437;
+    --color2: #354F2B;
+    --color3: #22341E;
+    --color4: #74A861;
 }
 
 h1 {
@@ -28,7 +28,7 @@ p {
 .btn {
     padding: 12px 20px;
     margin-top: 20px;
-    background: var(--blue2);
+    background: var(--color2);
     border-radius: 12px;
     color: var(--black);
     font-weight: 500;
@@ -36,6 +36,6 @@ p {
     transition: all 0.3s ease;
 
     &:hover {
-        background: var(--blue1);
+        background: var(--color1);
     }
 }
