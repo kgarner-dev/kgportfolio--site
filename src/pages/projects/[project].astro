@@ -2,6 +2,7 @@
 import Masthead from '../../components/Masthead.astro';
 import Layout from '../../layouts/Layout.astro';
 import { db, MyWork, eq } from 'astro:db';
+import Transformer from '../../components/Transformer.astro';
 
 const { project } = Astro.params;
 const projectSlug = String(project)
@@ -17,8 +18,6 @@ if (!work) {
         },
     });
 }
-
-const sections = work.body;
 ---
 
 <Layout 
@@ -32,6 +31,8 @@ const sections = work.body;
         tldr={ work.tldr }
         thumbnail={ work.thumbnail }
     />
+
+    <Transformer contentArray={ work.body } />
 </Layout>
 
 <style lang="scss">
