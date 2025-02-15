@@ -1,0 +1,175 @@
+---
+import Heading from '../components/Heading.astro';
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+	title="Kaleb Garner - Web Developer"
+	description="Kaleb Garner is an experienced web developer based in North Texas."
+>
+	<Heading title="My Resume" />
+    
+    <div class="page-body">
+        <h2>Experience</h2>
+        <div class="resume-section">
+           <div class="resume-title">
+                <h2>Front End Designer</h2>
+                <h4>DoctorLogic</h4>
+                <p>2022 - Current</p>
+           </div>
+           <div class="resume-description">
+                <ul>
+                    <li><p>Design and develop new websites on our platform for onboarding customers, utilizing technology like YAML, SCSS, and tools within Adobe Creative Suite.</p></li>
+                    <li><p>Handle smaller tasks within existing designs, including bug fixes, quality assurance, and resolving customer requests, and more.</p></li>
+                    <li><p>Collaborate with team members on UX/UI best practices and task management to improve user satisfaction and ensure an efficient workflow.</p></li>
+                    <li><p>In 2023, worked as the lead designer on over 130 projects, accounting to over 40% of our sites launched that year.</p></li>
+                </ul>
+           </div>
+        </div>
+
+        <div class="resume-section">
+            <div class="resume-title">
+                 <h2>Design Support Specialist</h2>
+                 <h4>DoctorLogic</h4>
+                 <p>2022</p>
+            </div>
+            <div class="resume-description">
+                 <ul>
+                     <li><p>Provided extensive support for a wide range of clients, managing design edits and addressing client requests.</p></li>
+                     <li><p>Led customer interactions and handled design-related questions during client calls.</p></li>
+                     <li><p>Spearheaded direct support for large enterprise clients, ensuring timely responses and customer satisfaction.</p></li>
+                     <li><p>Collaborated with multiple teams to support website development and maintenance.</p></li>
+                 </ul>
+            </div>
+         </div>
+
+         <h2>Education</h2>
+
+         <div class="resume-section">
+            <div class="resume-title">
+                <h2>BAT in Cybersecurity</h2>
+                <h4>Collin College</h4>
+                <p>2023 - Current</p>
+            </div>
+            <div class="resume-description">
+                 <ul>
+                     <li><p>Gained extensive knowledge in cybersecurity concepts, including penetration testing, cyber defense operations, cyber policies, and digital forensics.</p></li>
+                     <li><p>Gained foundational training in topics such as network management, system administration, technical support, and hands-on experience with computer hardware and software.</p></li>
+                     <li><p>Additionally, gained my Associate of Applied Science in Information Systems Cybersecurity.</p></li>
+                 </ul>
+            </div>
+         </div>
+
+         <h2>Certificates</h2>
+
+         <div class="resume-section">
+            <div class="resume-title">
+                <h4>ISC2</h4>
+                <h2>Certified in Cybersecurity (CC)</h2>
+                <p>Issued May 2024</p>
+            </div>
+            <div class="resume-description">
+                 <ul>
+                     <li><p>Demonstrates awareness of the fundamental knowledge required of a cybersecurity professional.</p></li>
+                     <li><p>Reflects proficiency in security principles, business continuity, disaster recovery, incident response, access control concepts, network security, and security operations.</p></li>
+                     <li><p>Certified by one of the most respected professional organizations in the IT field.</p></li>
+                 </ul>
+            </div>
+         </div>
+
+         <div class="resume-section">
+            <div class="resume-title">
+                <h4>Coursera</h4>
+                <h2>Google Cybersecurity Certificate</h2>
+                <p>Issued Oct 2024</p>
+            </div>
+            <div class="resume-description">
+                 <ul>
+                     <li><p>Demonstrates practical expertise with industry-standard tools, including Python, Linux, SQL, SIEM tools, and IDS.</p></li>
+                     <li><p>Highlights capability to conduct risk and vulnerability assessments in a professional setting.</p></li>
+                     <li><p>Showcases ability to complete threat analysis and responding effectively to network and cyber threats.</p></li>
+                 </ul>
+            </div>
+         </div>
+    </div>
+</Layout>
+
+<style lang="scss">
+    @use '../components/global.scss';
+
+    .page-body {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 25px 25px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        @media (min-width: 600px) {
+            gap: 3rem;
+            padding: 0 45px 45px;
+        }
+
+        > h2 {
+            margin: 0;
+            color: var(--white);
+            text-decoration: underline;
+        }
+
+        .resume-section {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+
+            @media (min-width: 600px) {
+                gap: 1rem;
+            }
+
+            .resume-title {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                grid-column: auto / span 3;
+
+                @media (min-width: 600px) {
+                    grid-column: auto / span 1;
+                }
+            }
+
+            .resume-description {
+                grid-column: auto / span 3;
+
+                @media (min-width: 600px) {
+                    grid-column: auto / span 2;
+                }
+
+                ul {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    margin: 0;
+                }
+            }
+
+            h2 {
+                font-size: 1.45rem;
+            }
+
+            h4 {
+                font-size: 1.05rem; 
+            }
+
+            p {
+                font-size: 0.95rem
+            }
+
+            h2, h4, p {
+                margin: 0;
+            }
+
+            h2, h4, p, li {
+                color: var(--white);
+            }
+        }
+    }
+</style>

@@ -1,0 +1,40 @@
+---
+const { title } = Astro.props;
+---
+
+<div class="heading">
+    <a href="/">← Back Home</a>
+    <h1>{ title }</h1>
+</div>
+
+<style lang="scss">
+    @use './global.scss';
+
+    .heading {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 25px;
+
+        h1 {
+            color: var(--white);
+            margin: 0;
+            font-size: 2.65rem;
+        }
+
+        a {
+            color: var(--white);
+
+            &:hover {
+                color: var(--color4)
+            }
+        }
+
+        @media (min-width: 600px) {
+            padding: 1rem;
+            padding: 45px;
+        }
+    }
+</style>

@@ -2,11 +2,11 @@
 const { title, headline, date, thumbnail, tldr } = Astro.props;
 ---
 
-<main class="masthead">
+<div class="masthead">
     <div class="masthead-image" style=`background: url('${ thumbnail }') center center/cover no-repeat;'`></div>
     <div class="masthead-text">
         <div class="masthead-headline">
-            <p><a href='/'>Home</a> > { title }</p>
+            <p><a href='/'>Home</a> > <a href='/projects'>Projects</a> > { title }</p>
             <h1>{ title }</h1>
             <h2>{ headline }</h2>
         </div>
@@ -15,7 +15,7 @@ const { title, headline, date, thumbnail, tldr } = Astro.props;
             <p class="masthead-tldr">{ tldr }</p>
         </div>
     </div>
-</main>
+</div>
 
 <style lang="scss">
     @use './global.scss';
