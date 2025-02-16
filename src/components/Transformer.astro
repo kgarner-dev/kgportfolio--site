@@ -1,10 +1,12 @@
 ---
 import Text from "./blocks/Text.astro";
-import Image from "astro/components/Image.astro";
+import TextImage from "./blocks/TextImage.astro";
+import List from "./blocks/List.astro";
 
 const blockMap: any = {
     text: Text,
-    image: Image
+    textimage: TextImage,
+    list: List
 }
 
 const { contentArray } = Astro.props
@@ -23,12 +25,12 @@ const { contentArray } = Astro.props
     @use './global.scss';
 
     main {
-        max-width: 1400px;
+        max-width: 1000px;
         margin: 0 auto;
         padding: 0 25px 25px;
         display: flex;
         flex-direction: column;
-        row-gap: 1rem;
+        row-gap: 3rem;
 
         @media (min-width: 600px) {
             padding: 0 45px 45px;

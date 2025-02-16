@@ -1,0 +1,50 @@
+---
+const { headline, body, src, alt } = Astro.props;
+---
+
+<div class="text-image-wrapper">
+    <div class="image-wrapper">
+        <img src=`${ src }` alt=`${ alt }` />
+    </div>
+    <div class="text-wrapper">
+        { headline && <h2>{ headline }</h2> }
+        { body && <p>{ body }</p> }
+    </div>
+</div>
+
+<style lang="scss">
+    @use '../global.scss';
+
+    .text-image-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .image-wrapper {
+            img {
+                max-width: 100%;
+                aspect-ratio: 1.85;
+                object-fit: cover;
+                -o-object-fit: cover;
+                border-radius: 12px;
+            }
+        }
+
+        .text-wrapper {
+            display: flex;
+            flex-direction: column;
+
+            h2, p {
+                color: var(--white);
+            }
+
+            h2 {
+                margin: 0 0 10px;
+            }
+
+            p {
+                margin: 0;
+            }
+        }
+    }
+</style>

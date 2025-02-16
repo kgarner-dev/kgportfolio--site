@@ -42,10 +42,11 @@ const { title, headline, date, thumbnail, tldr } = Astro.props;
             grid-template-columns: repeat(2, 1fr);
             grid-template-rows: auto;
             gap: 1rem;
-            padding-top: 25px;
+            padding: 25px 0;
+            border-bottom: 1px solid var(--white);
 
             @media (min-width: 600px) {
-                padding-top: 45px;
+                padding: 45px 0;
             }
 
             .masthead {

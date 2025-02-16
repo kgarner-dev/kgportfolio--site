@@ -1,0 +1,49 @@
+---
+const { headline, caption, items } = Astro.props;
+---
+
+<div class="list-wrapper">
+    { headline && <h2>{ headline }</h2> }
+    { caption && <p>{ caption }</p> }
+    <ul>
+        {items.map(item => <li>{item}</li>)}
+    </ul>
+</div>
+
+<style lang="scss">
+    @use '../global.scss';
+
+    .list-wrapper {
+        display: flex;
+        flex-direction: column;
+
+        h2 {
+            margin: 0 0 10px;
+            color: var(--white);
+        }
+
+        p {
+            margin: 0 0 10px;
+            color: var(--white);
+        }
+
+        ul {
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+            gap: 10px;
+
+            li {
+                color: var(--white);
+            }
+
+            @media (min-width: 600px) {
+                padding: 45px;
+                gap: 1rem;
+            }
+        }
+    }
+</style>
