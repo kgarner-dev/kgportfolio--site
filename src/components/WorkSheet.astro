@@ -6,15 +6,14 @@ const work = await db.select().from(MyWork);
 ---
 
 <div class="sheet">
-    <div class="sheet-bar">
-        <h3>My Work</h3>
-        <!-- <div class="board-filter">
+    <!-- <div class="sheet-bar">
+        <div class="board-filter">
             <a><h3>All</h3></a>
             <a><h3>Projects</h3></a>
             <a><h3>Blog</h3></a>
             <a><h3>Videos</h3></a>
-        </div> -->
-    </div>
+        </div>
+    </div>-->
     <div class="sheet-feed">
         {
             work.map(({ title, thumbnail, type, tldr, url, date }) => (
@@ -36,13 +35,13 @@ const work = await db.select().from(MyWork);
     @use './global.scss';
 
     .sheet {
-        max-width: 1400px;
+        max-width: 1200px;
         margin: 0 auto;
         display: grid;
-        padding: 25px;
+        padding: 0 25px 25px;
 
         @media (min-width: 600px) {
-            padding: 45px;
+            padding: 0 45px 45px;
         }
 
         &-bar {
@@ -76,7 +75,7 @@ const work = await db.select().from(MyWork);
                 color: var(--white);
                 display: grid;
                 grid-template-columns: repeat(4, 1fr);
-                gap: 10px;
+                gap: 1rem;
                 border-top: 1px solid var(--white);
 
                 &:last-of-type {
