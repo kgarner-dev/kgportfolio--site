@@ -1,6 +1,5 @@
 ---
 import { db, MyWork } from 'astro:db';
-import WorkCard from "./WorkCard.astro";
 
 const work = await db.select().from(MyWork);
 ---
