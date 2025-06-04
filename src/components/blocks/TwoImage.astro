@@ -1,0 +1,43 @@
+---
+const { src1, alt1, src2, alt2 } = Astro.props;
+---
+
+<div class="image-wrapper">
+    <img src={src1} alt={alt1} />
+    <img src={src2} alt={alt2} />
+</div>
+
+<style lang="scss">
+    @use '../global.scss';
+
+    .image-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        row-gap: 1rem;
+
+        @media (min-width: 600px) {
+            flex-direction: row;
+            aspect-ratio: 1.85;
+            gap: 1rem;
+        }
+
+        img {
+            max-width: 100%;
+            aspect-ratio: 1.85;
+            object-fit: cover;
+            -o-object-fit: cover;
+            border-radius: 12px;
+            aspect-ratio: 1;
+
+            @media (min-width: 600px) {
+                flex-direction: row;
+                aspect-ratio: unset;
+                height: 100%;
+                max-width: 50%;
+            }
+        }
+    }
+    
+</style>

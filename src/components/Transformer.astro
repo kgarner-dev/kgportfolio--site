@@ -3,12 +3,14 @@ import Text from "./blocks/Text.astro";
 import TextImage from "./blocks/TextImage.astro";
 import List from "./blocks/List.astro";
 import Image from "./blocks/Image.astro";
+import TwoImage from "./blocks/TwoImage.astro";
 
 const blockMap: any = {
     text: Text,
     textimage: TextImage,
     list: List,
-    image: Image
+    image: Image,
+    twoimage: TwoImage
 }
 
 const { contentArray } = Astro.props
