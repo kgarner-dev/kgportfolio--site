@@ -36,6 +36,16 @@ const { src1, alt1, src2, alt2 } = Astro.props;
                 aspect-ratio: unset;
                 height: 100%;
                 max-width: 50%;
+                
+                &:first-of-type {
+                    object-position: left;
+                    -o-object-position: left;
+                }
+
+                &:last-of-type {
+                    object-position: right;
+                    -o-object-position: right;
+                }
             }
         }
     }
