@@ -1,0 +1,22 @@
+---
+const { src, alt } = Astro.props;
+---
+
+<div class="image-wrapper">
+    <img src=`${ src }` alt=`${ alt }` />
+</div>
+
+<style lang="scss">
+    @use '../global.scss';
+
+    .image-wrapper {
+        img {
+            max-width: 100%;
+            aspect-ratio: 1.85;
+            object-fit: cover;
+            -o-object-fit: cover;
+            border-radius: 12px;
+        }
+    }
+    
+</style>
