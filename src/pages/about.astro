@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import Heading from '../components/Heading.astro';
 import Layout from '../layouts/Layout.astro';
 ---
@@ -12,8 +13,50 @@ import Layout from '../layouts/Layout.astro';
     <div class="page-body">
         <div class="section">
             <h2>My Journey</h2>
-            <p>After high school, I left for college playing baseball and pursuing a degree in Biology, with the goal of eventually getting into medical school. After some unexpected changes, I found myself back home wondering what was next. I spent a little time working in the medical field, but found myself embarking on a self-taught journey into becoming a developer at the beginning of 2022.</p>
-            <p>After six months of dedicated studying and coding, I landed a web development role, where I continue to work today. I'm always pushing myself to grow as a developer, and one way I am completing that task is within my pursuit of my Bachelor's degree in Cybersecurity.</p>
+            <div class="textImage">
+                <div class="image">
+                   <img src="https://hbirmdoiqm.ufs.sh/f/C3h9qu5XgJvHWnn7WjAeUGJ87lZxMN06f3IwOjrg9WdVKBCH" alt="High school graduation"/>
+                </div>
+                <div class="text">
+                    <p>Coming from a deeply-rooted medical background in my family, after I graduated high school I left for college with two goals in mind: a long college baseball career and a degree in Biology to set me up for medicial school (or professional baseball).</p>
+                    <p>One semester, one knee surgery, and one failed biology class later... I was back at home wondering what was next.</p>
+                    <p>I picked up a part-time role at an optometry office, enrolled in some general studies courses, and started racking my brain over what my next step was. Maybe it was nursing. Maybe PA school. Maybe I could put my head down and give the Biology degree one more try. Then I started to wonder - what if there was another way to pursue my passion for the medical field, without the scrubs or the MCAT?</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <p>January 1st, 2022: That's when I took the deep dive into web development. Between YouTube videos, online communities (if you need one, I couldn't recommend 100devs or Dallas Software Developers more), and personal projects I was piecing together what it meant to build a website.</p>
+            <p>TypeScript, Python, CSS, accessibility standards, OOP—little by little I gained more confidence in my abilities to design and develop websites from scratch. After six months of late nights and countless cups of coffee, I landed my first full-time role. This is where I started to fully see how important the intersection between medicine and technology truly was.</p>
+        </div>
+
+        <div class="section">
+            <p>In that first role, I was introduced to a whole new mindset around development: patient aquisition, practice branding, HIPPA standards. I started to see technology and the web as a foundation for fostering better, easier, and faster treatment for patients who need it most.</p>
+            <p>Shortly after, I started my journey towards a degree that aligned with both my experience and long-term goals: Cybersecurity. Learning how the web works on a deeper level—and how to build secure, resilient applications—all essential pieces within healthtech.</p>
+            <p>From starting at a heavily design and UX/UI-focused role, to working in backend workflows and streamlining pipelines for more efficient applications, to building a solid educational foundation in web architecture, networking, and security—I began to develop a new mindset: seeing apps <i>holisitcally</i>. Seeing a problem and being able to look <i>through</i> it. Sometime a design revamp for one component could turn up deeper issues and inefficiencies across the entire application—using this holistic approach leads to important improvements, like delivering critical data to patients faster.</p>
+        </div>
+
+        <div class="section">
+            <p>As time went on, I became more engrained in the healthtech space: learning how patient data travels, seeing the constant cyberwar raged against hospitals, and uncovering so many topics that I spend time researching and breaking down. All of it to push the envelop when it comes to improving healthcare, one line of code at a time.</p>
+        </div>
+
+        <div class="section">
+            <h2>What Else?</h2>
+            <p>Well, what about outside of my work?</p>
+        </div>
+
+        <div class="section">
+            <div class="textImage">
+                <div class="image">
+                   <img src="https://hbirmdoiqm.ufs.sh/f/C3h9qu5XgJvHRhDBxlzMly3ZSD0rBgQEbU6NzHK8CkdhxVOG" alt="High school graduation"/>
+                </div>
+                <div class="text">
+                    <p>Well, on November 20, 2024 I married the love of my life (yes... she is the same girl from my high school graduation picture).</p>
+                    <p>I still thoroughly enjoy all kinds of sports: you can find my on the golf course or watching baseball, football, basketball, tennis, and much more on tv.</p>
+                    <p>As a developer, I have an obligation to be pretty nerdy as well: I enjoy playing video games, find a lot of inspiration in movies and tv shows, and love collecting a lot of desk trinkets (and Pokemon cards).</p>
+                    <p>I've been heavily involved in my home church since my senior year of high school, so my Sunday mornings and Wednesday nights are usually booked.</p>
+                </div>
+            </div>
         </div>
     </div>
 </Layout>
@@ -27,10 +70,10 @@ import Layout from '../layouts/Layout.astro';
         padding: 0 25px 25px;
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        row-gap: 1rem;
 
         @media (min-width: 600px) {
-            gap: 1rem;
+            row-gap: 3rem;
             padding: 0 45px 45px;
         }
 
@@ -54,6 +97,37 @@ import Layout from '../layouts/Layout.astro';
 
             h2, p {
                 color: var(--white);
+            }
+
+            .textImage {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                row-gap: 1rem;
+
+                .text {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    row-gap: 1rem;
+                }
+
+                .image {
+                    img {
+                        object-fit: cover;
+                        -o-object-fit: cover;
+                        max-width: 100%;
+                    }
+                }
+
+                @media (min-width: 600px) {
+                    flex-direction: row;
+                    gap: 1rem;
+
+                    .text, .image {
+                        width: 50%;
+                    }
+                }
             }
         }
     }
